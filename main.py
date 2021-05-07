@@ -3,19 +3,17 @@ import platform
 import tkinter.messagebox
 from tkinter.filedialog import asksaveasfilename, askopenfilename
 import subprocess
-import inject
 
 compiler = Tk()
-compiler.title('ToxikIDE')
+compiler.title('Maverickdev55 IDE Full+++')
 file_path = ''
 
 
 def set_file_path(path):
     global file_path
     file_path = path
-def AllowVirus():
-	inject.inject()
-	
+
+
 def open_file():
     path = askopenfilename(filetypes=[('Python Files', '*.py')])
     with open(path, 'r') as file:
@@ -43,22 +41,25 @@ def run():
         text.pack()
         return
     command = f'python {file_path}'
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    process = subprocess.Popen(command,
+                               stdout=subprocess.PIPE,
+                               stderr=subprocess.PIPE,
+                               shell=True)
     output, error = process.communicate()
     code_output.insert('1.0', output)
-    code_output.insert('1.0',  error)
+    code_output.insert('1.0', error)
 
 
 menu_bar = Menu(compiler)
 
 file_menu = Menu(menu_bar, tearoff=0)
 file_menu.add_command(label='Open', command=open_file)
-file_menu.add_command(label='Turn on Virus Mode', command=AllowVirus)
+file_menu.add_command(label='ad: FREE VBucks, ROBUX and EVEN MINECOINS',
+                      command=vurusactivate)
 file_menu.add_command(label='Save', command=save_as)
 file_menu.add_command(label='Save As', command=save_as)
 file_menu.add_command(label='Exit', command=exit)
 menu_bar.add_cascade(label='File', menu=file_menu)
-
 
 run_bar = Menu(menu_bar, tearoff=0)
 run_bar.add_command(label='Run', command=run)
